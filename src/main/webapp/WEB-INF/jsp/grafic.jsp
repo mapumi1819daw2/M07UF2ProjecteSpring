@@ -9,7 +9,9 @@
     <script language="javascript" src="jquery.min.js"></script>
     <script language="javascript" src="Chart.min.js"></script>
     <script type="text/javascript">
+
         $(function () {
+
             function dibuixaGrafica(ctx, creat, fila, nom) {
                 var chartdata = {
                     labels: creat,
@@ -34,24 +36,21 @@
 
             var ctx = $("#myCanvas");
 
-            var created_atX;
-            var ModuleCurrentX;
-
-            <c:forEach items="${dataPointsList}" var="dataPoints" varStatus="loop">
-            <c:forEach items="${dataPoints}" var="dataPoint">
-            xValue = parseInt("${dataPoint.x}");
-            yValue = parseFloat("${dataPoint.y}");
-            dps[parseInt("${loop.index}")].push({
-                x : xValue,
-                y : yValue
-            });
-            </c:forEach>
-            </c:forEach>
+            var temperatura = [20,22,25];
+            var lat = [2.22, 3.33, 3.55];
 
 
-            dibuixaGrafica(ctx, created_atX, ModuleCurrentX, "Temperatures");
+           /* <c:forEach items="${dada}" var="d" varStatus="loop">
+                temperatura.push("${dada.valor}");
+                lat.push("${dada.lat}");
+
+            </c:forEach>*/
+
+            dibuixaGrafica(ctx, temperatura,  lat, "Temperatures");
+
 
         });
+
     </script>
 
     <style>
@@ -64,6 +63,7 @@
 <body>
 
 <canvas id="myCanvas"></canvas>
+
 
 </body>
 </html>
