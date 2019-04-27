@@ -6,8 +6,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <script language="javascript" src="jquery.min.js"></script>
-    <script language="javascript" src="Chart.min.js"></script>
+
+    <script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+
+
     <script type="text/javascript">
 
         $(function () {
@@ -36,15 +41,15 @@
 
             var ctx = $("#myCanvas");
 
-            var temperatura = [20,22,25];
-            var lat = [2.22, 3.33, 3.55];
+            var temperatura = [];
+            var lat = [];
 
 
-           /* <c:forEach items="${dada}" var="d" varStatus="loop">
+            <c:forEach items="${dades}" var="dada" varStatus="loop">
                 temperatura.push("${dada.valor}");
                 lat.push("${dada.lat}");
 
-            </c:forEach>*/
+            </c:forEach>
 
             dibuixaGrafica(ctx, temperatura,  lat, "Temperatures");
 

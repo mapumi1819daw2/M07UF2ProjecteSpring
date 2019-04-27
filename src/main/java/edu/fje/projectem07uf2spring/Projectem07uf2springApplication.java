@@ -2,6 +2,7 @@ package edu.fje.projectem07uf2spring;
 
 import edu.fje.projectem07uf2spring.model.Dada;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +13,7 @@ import java.security.Principal;
 
 @SpringBootApplication
 @RestController
-public class Projectem07uf2springApplication {
+public class Projectem07uf2springApplication implements CommandLineRunner {
 
     @Autowired
    private DadaRepositori repositori;
@@ -26,7 +27,7 @@ public class Projectem07uf2springApplication {
         return principal;
     }
 
-    //@Override
+    @Override
     public void run(String... args) throws Exception {
 
         repositori.deleteAll();

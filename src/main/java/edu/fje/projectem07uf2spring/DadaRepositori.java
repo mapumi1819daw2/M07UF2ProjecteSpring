@@ -14,7 +14,7 @@ public interface DadaRepositori extends MongoRepository<Dada, String> {
 
     Dada findByValor(int valor);
     List<Dada> findByLat(Float lat);
-    List<Dada> findAllBy();
+    List<Dada> findAll();
 
 
 }

@@ -45,7 +45,7 @@ public class DadaController {
 
 
     @RequestMapping(value={"/grafic"})
-    String desarClient( ModelMap model){
+    String desarClient(ModelMap model){
         //List<Dada> dades = repositori.findAllBy();
         //System.out.print(dades.toString());
 
@@ -54,13 +54,10 @@ public class DadaController {
        // model.addAttribute("dataPointsList", dades);
        //eturn "chart";
 
-        /*List<Dada> dades = new ArrayList<>();
 
-        dades.add(new Dada(0, 20, 1.11, 2.22));
-        dades.add(new Dada(1, 21, 3.11, 4.44));
-        dades.add(new Dada(2, 22, 5.11, 6.66));
-        dades.add(new Dada(3, 23, 7.11, 8.88));
-        model.addAttribute("dades", dades);*/
+        List<Dada> dades = repositori.findAll();
+
+        model.addAttribute("dades", dades);
         return("grafic");
     }
 
