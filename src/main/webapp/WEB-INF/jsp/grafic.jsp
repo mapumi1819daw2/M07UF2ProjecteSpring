@@ -2,20 +2,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="daw" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 
 
     <script type="text/javascript">
 
         $(function () {
+
+            var ctx = document.getElementById("myCanvas").getContext("2d");
 
             function dibuixaGrafica(ctx, creat, fila, nom) {
                 var chartdata = {
@@ -33,13 +37,13 @@
 
 
                 var barGraph = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: chartdata
                 });
             }
 
 
-            var ctx = $("#myCanvas");
+
 
             var temperatura = [];
             var lat = [];
@@ -58,16 +62,14 @@
 
     </script>
 
-    <style>
-        canvas{
-            width: 500px;
-            height: 500px;
-        }
-    </style>
+
 </head>
 <body>
+<daw:nom  nom="Marc Purgimon" />
+<daw:Curs  curs="2n DAW" />
+<daw:titol  titol="Gràfic de temperatures" />
 
-<canvas id="myCanvas"></canvas>
+<canvas id="myCanvas" width="400" height="400" ></canvas>
 
 
 </body>

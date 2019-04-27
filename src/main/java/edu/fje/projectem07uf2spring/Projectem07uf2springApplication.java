@@ -39,14 +39,6 @@ public class Projectem07uf2springApplication implements CommandLineRunner {
             System.out.println(d);
         }
 
-        /*
-        System.out.println();
-        System.out.println(repositori.findByCognom("Sergi"));
-
-        for (Client c : repositori.findByCognom("Grau")) {
-            System.out.println(c);
-        }*/
-
     }
 
 }

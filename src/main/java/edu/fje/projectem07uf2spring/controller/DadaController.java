@@ -16,8 +16,8 @@ import java.util.Map;
 /**
  * Controlador de clients
  * Verifica el funcionament de curl
- * @author sergi.grau@fje.edu
- * @version 1.0 21.3.19
+ * @author marc Purgimon
+ * @version 1.0
  */
 @Controller
 @SessionAttributes("dades")
@@ -46,15 +46,6 @@ public class DadaController {
 
     @RequestMapping(value={"/grafic"})
     String desarClient(ModelMap model){
-        //List<Dada> dades = repositori.findAllBy();
-        //System.out.print(dades.toString());
-
-
-       // List<List<Map<Object, Object>>> canvasjsDataList = dades;
-       // model.addAttribute("dataPointsList", dades);
-       //eturn "chart";
-
-
         List<Dada> dades = repositori.findAll();
 
         model.addAttribute("dades", dades);
@@ -71,53 +62,7 @@ public class DadaController {
         System.out.print(d.toString());
         repositori.save(d);
 
-        /*if(!model.containsAttribute("dades")) {
-            model.addAttribute("dades", dades);
-        }
-        dades.add(d);*/
-
-
-
-
         return "Els paràmetres són" + allParams.entrySet();
     }
-
-
-
-    @RequestMapping(value="/desarDada", method = RequestMethod.POST)
-    String desarClient(@SessionAttribute("dades") List<Dada> dades,
-                       @RequestParam (defaultValue = "") int id,
-                       @RequestParam (defaultValue = "") int valor,
-                       @RequestParam (defaultValue = "") Double lat,
-                       @RequestParam (defaultValue = "") Double longitud,
-                       ModelMap model){
-        Dada d = new Dada(id, valor, lat, longitud);
-        System.out.print(d.toString());
-        repositori.save(d);
-
-        if(!model.containsAttribute("dades")) {
-            model.addAttribute("dades", dades);
-        }
-        dades.add(d);
-
-
-        return("llistaDades");
-    }
-
-
-
-    /*@RequestMapping(value="/esborrarClient", method = RequestMethod.GET)
-    String esborrarClient(@SessionAttribute("clients") List<Dada> clients,
-                       @RequestParam (defaultValue = "") String id){
-
-        System.out.println(id);
-
-        repositori.deleteById(id);
-        Dada t = new Dada();
-        t.setId(id);
-        clients.remove(t);
-
-        return("llistaClients");
-    }*/
 
 }
